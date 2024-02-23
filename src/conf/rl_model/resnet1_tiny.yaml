@@ -1,0 +1,7 @@
+name: resnet1_tiny
+block_type: basic
+layer_list: [1]
+initial_kernel_size: 3
+action_space_size: 48
+device: cuda:2
+

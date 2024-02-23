@@ -1,0 +1,77 @@
+# @package _global_
+dataset:
+  name: battery_2
+  path: ../data/battery_2
+  train_images_dir: train_images
+  train_labels_dir: train_label
+  val_images_dir: validation_images
+  val_labels_dir: validation_label
+  test_images_dir: test_images
+  test_labels_dir: test_label
+global_model:
+  name: unet_tiny_two_block
+  n_channels: 1
+  n_classes: 3
+  bilinear: true
+  weights:
+  - 0.96275112
+  - 0.8969029
+  - 0.14034598
+  checkpoint: UNET_SMALL_CHECKPOINT_PATH
+  device: UNET_SMALL_DEVICE
+local_models:
+  unet_small:
+    name: unet_small
+    n_channels: 1
+    n_classes: 3
+    bilinear: true
+    weights:
+    - 0.96275112
+    - 0.8969029
+    - 0.14034598
+    checkpoint: UNET_MEDIUM_CHECKPOINT_PATH
+    device: UNET_MEDIUM_DEVICE
+  unet:
+    name: unet
+    n_channels: 1
+    n_classes: 3
+    bilinear: true
+    weights:
+    - 0.96275112
+    - 0.8969029
+    - 0.14034598
+    checkpoint: UNET_LARGE_CHECKPOINT_PATH
+    device: UNET_LARGE_DEVICE
+rl_model:
+  name: resnet1_tiny
+  block_type: basic
+  layer_list:
+  - 1
+  initial_kernel_size: 3
+  action_space_size: 48
+  device: RL_DEVICE
+optimizer:
+  name: adam
+  learning_rate: 0.0001
+  weight_decay: 0.0
+wandb:
+  project: PROJECT_NAME
+  group: GROUP_NAME
+  name: RUN_NAME
+  mode: disabled # set this to online and set the parameters above to use weights and biases, this is not required
+save_code_snapshot: false
+batch_size: 32
+shuffle: true
+pin_memory: true
+writer_max_queue: 50
+num_patches: 16
+num_horizontal_patches: 4
+num_vertical_patches: 4
+num_unc_samples: 5
+lam: 0.5
+alpha_start: 0.7
+alpha_end: 0.95
+epochs: 200
+checkpoint_save_interval: 25
+compute_metrics_interval: 10
+

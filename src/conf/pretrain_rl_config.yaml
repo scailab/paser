@@ -1,0 +1,30 @@
+defaults:
+    - dataset: battery_2
+    - global_model: unet_tiny_two_block_distill
+    - local_models:
+        - unet_small
+        - unet
+    - rl_model: resnet1_tiny
+    - optimizer: adam
+    - _self_
+save_code_snapshot: False
+batch_size: 32
+shuffle: True
+pin_memory: True
+writer_max_queue: 50
+num_patches: 16
+num_horizontal_patches: 4
+num_vertical_patches: 4
+num_unc_samples: 20
+lam: 0.1
+alpha_start: 0.7
+alpha_end: 0.95
+epochs: ???
+checkpoint_save_interval: ???
+compute_metrics_interval: 10
+wandb:
+    project: PROJECT_NAME
+    group: GROUP_NAME
+    name: RUN_NAME
+    mode: disabled # change this to online and set the parameters above if you want to log to weights and biases, this is not required
+

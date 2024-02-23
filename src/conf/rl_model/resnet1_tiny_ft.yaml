@@ -1,0 +1,7 @@
+name: resnet1_tiny
+block_type: basic
+layer_list: [1]
+initial_kernel_size: 3
+action_space_size: 48
+checkpoint: ./outputs/2023-08-03/21-42-00/resnet1_tiny_model_checkpoint_199.pt
+device: cuda:2

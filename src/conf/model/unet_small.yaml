@@ -1,0 +1,6 @@
+name: unet_small
+n_channels: 1
+n_classes: 3
+bilinear: True
+weights: [0.96275112, 0.8969029, 0.14034598]
+

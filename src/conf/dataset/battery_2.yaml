@@ -1,0 +1,9 @@
+name: battery_2
+path: ../data/battery_2
+train_images_dir: train_images
+train_labels_dir: train_label
+val_images_dir: validation_images
+val_labels_dir: validation_label
+test_images_dir: test_images
+test_labels_dir: test_label
+

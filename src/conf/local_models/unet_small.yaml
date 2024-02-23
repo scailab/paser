@@ -1,0 +1,9 @@
+unet_small:
+    name: unet_small
+    n_channels: 1
+    n_classes: 3
+    bilinear: True
+    weights: [0.96275112, 0.8969029, 0.14034598]
+    checkpoint: ./outputs/2023-04-25/03-14-54/unet_small_model_checkpoint_199_final.pt
+    device: cuda:2
+

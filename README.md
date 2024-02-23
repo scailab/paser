@@ -19,13 +19,15 @@ Code repository for AAAI 2024 paper [Reinforcement Learning as a Parsimonious Al
 
 Note above you need to set the number of epochs to train, how often to save model training checkpoints, and the device id.
 
-2. Train the medium unet model
+2. Train the medium unet model:
 `python pretrain.py +experiment=pretrain_unet_medium_battery epochs={NUM_EPOCHS} checkpoint_save_interval={SAVE_INT} device={DEVICE}`
-3. Train the small unet model with distillation
+3. Train the small unet model with distillation:
 `python pretrain.py +experiment=pretrain_unet_small_distill_battery epochs={NUM_EPOCHS} checkpoint_save_interval={SAVE_INT} device={DEVICE} local_model.checkpoint={LARGE_UNET_CHECKPOINT_PATH}`
+
 Note above you need to set the path to the model checkpoint of the trained large unet.
-4. Train the RL policy
+
+4. Train the RL policy:
 `python pretrain_rl.py +experiment=pretrain_rl_battery epochs={NUM_EPOCHS} checkpoint_save_interval={SAVE_INT} global_model.checkpoint={SMALL_UNET_CHECKPOINT} global_model.device={SMALL_UNET_DEVICE} local_models.unet_small.checkpoint={MEDIUM_UNET_CHECKPOINT} local_models.unet_small.device={MEDIUM_UNET_DEVICE} local_models.unet.checkpoint={LARGE_UNET_CHECKPOINT} local_models.unet.device={LARGE_UNET_DEVICE} rl_model.device={RL_MODEL_DEVICE}`
-5. Finetune the RL policy and segmentation models
+5. Finetune the RL policy and segmentation models:
 `python finetune.py +experiment=finetune_battery epochs={NUM_EPOCHS} checkpoint_save_interval={SAVE_INT} global_model.checkpoint={SMALL_UNET_CHECKPOINT} global_model.device={SMALL_UNET_DEVICE} local_models.unet_small.checkpoint={MEDIUM_UNET_CHECKPOINT} local_models.unet_small.device={MEDIUM_UNET_DEVICE} local_models.unet.checkpoint={LARGE_UNET_CHECKPOINT} local_models.unet.device={LARGE_UNET_DEVICE} rl_model.checkpoint={RL_MODEL_CHECKPOINT} rl_model.device={RL_MODEL_DEVICE}`
 

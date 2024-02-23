@@ -1,0 +1,8 @@
+name: unet_tiny_two_block
+n_channels: 1
+n_classes: 3
+bilinear: True
+weights: [0.96275112, 0.8969029, 0.14034598]
+checkpoint: ./outputs/2023-05-01/07-29-29/unet_tiny_two_block_model_checkpoint_199_final.pt
+device: cuda:2
+

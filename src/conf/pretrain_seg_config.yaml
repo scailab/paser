@@ -1,0 +1,24 @@
+defaults:
+    - dataset: battery_2
+    - model: unet
+    - optimizer: adam
+    - _self_
+save_code_snapshot: False
+batch_size: 32
+shuffle: True
+pin_memory: True
+model_type: global
+num_horizontal_patches: 1
+num_vertical_patches: 1
+train_metrics_compute_interval: 10
+save_best_checkpoint_val: False
+noisy_dataset: False
+epochs: ???
+device: ???
+checkpoint_save_interval: ???
+wandb:
+    project: PROJECT_NAME
+    group: GROUP_NAME
+    name: RUN_NAME
+    mode: disabled # change this to online and set the parameters above if you want to log to weights and biases, this is not required
+
